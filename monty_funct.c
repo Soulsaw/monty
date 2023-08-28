@@ -16,6 +16,10 @@ void (*get_instruc(const char *opcode))(stack_t **, unsigned int)
 	instruction_t instrucs[] = {
 		{"push", push},
 		{"pall", pall},
+		{"print", print},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
 		{NULL, NULL}
 	};
 
