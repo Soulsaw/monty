@@ -39,11 +39,10 @@ int main(int argc, char **argv)
 		while ((word = __strtok_r(ptr, "\n", &ptr)) != NULL)
 		{
 			line_number++;
-			token = strtok(word, " \0\t\n");
+			token = strtok(word, " \t\n");
 			if (token && token[0] != '#')
 			{
-				token[strlen(token)] = '\0';
-				arg = strtok(NULL, " \0\t\n");
+				arg = strtok(NULL, " \t\n");
 				execute_instruction(&stack, line_number, token, arg);
 			}
 		}
