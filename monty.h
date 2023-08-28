@@ -39,6 +39,9 @@ void print(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void div_stack(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 void execute_instruction(stack_t **stack, unsigned int line_number,
 const char *opcode, const char *arg);
 #endif /*MONTY_H*/

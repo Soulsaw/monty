@@ -21,6 +21,9 @@ void (*get_instruc(const char *opcode))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"add", add},
 		{"sub", sub},
+		{"div", div_stack},
+		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 
