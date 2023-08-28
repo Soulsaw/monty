@@ -59,7 +59,7 @@ const char *opcode, const char *arg)
 		}
 		else if (strcmp(opcode, "push") == 0 && arg == NULL)
 		{
-			fprintf(stderr, "L<%u>:usage:push integer\n", line_number);
+			fprintf(stderr, "L%u:usage:push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 		else
@@ -68,7 +68,7 @@ const char *opcode, const char *arg)
 		}
 		return;
 	}
-	fprintf(stderr, "L<%u>: unknown instruction %s\n", line_number, opcode);
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
 /**

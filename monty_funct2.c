@@ -19,7 +19,7 @@ void print(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L<%u>: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -44,7 +44,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L<%u>: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -71,7 +71,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L<%u>: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -93,7 +93,7 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L<%u>: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -116,7 +116,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L<%u>: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
