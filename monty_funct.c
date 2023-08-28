@@ -20,6 +20,7 @@ void (*get_instruc(const char *opcode))(stack_t **, unsigned int)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 
@@ -30,7 +31,6 @@ void (*get_instruc(const char *opcode))(stack_t **, unsigned int)
 		i++;
 	}
 	return (NULL);
-
 }
 
 /**
@@ -50,6 +50,8 @@ const char *opcode, const char *arg)
 	instruct = get_instruc(opcode);
 	if (instruct != NULL)
 	{
+		if (strcmp(opcode, "nop") == 0)
+			return;
 		if (strcmp(opcode, "push") == 0 && arg != NULL)
 		{
 			value = atoi(arg);
@@ -57,7 +59,7 @@ const char *opcode, const char *arg)
 		}
 		else if (strcmp(opcode, "push") == 0 && arg == NULL)
 		{
-			fprintf(stderr, "L%u:usage:push integer\n", line_number);
+			fprintf(stderr, "L<%u>:usage:push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 		else
@@ -66,7 +68,7 @@ const char *opcode, const char *arg)
 		}
 		return;
 	}
-	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+	fprintf(stderr, "L<%u>: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
 /**

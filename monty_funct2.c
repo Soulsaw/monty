@@ -19,7 +19,7 @@ void print(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L<%u>: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -44,7 +44,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L<%u>: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -71,7 +71,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L<%u>: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -93,7 +93,30 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L<%u>: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+}
+/**
+ * sub - This function subtracts the top element of the
+ * stack from the second top element of the stack.
+ * @stack: Is the pointer to the first element of stack
+ * @line_number: Is the number of the current line
+ * Return: 0 on success or -1 on error
+ */
+void sub(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+
+	if (current && current->prev)
+	{
+		current->prev->n -= current->n;
+		pop(stack, line_number);
+		return;
+	}
+	else
+	{
+		fprintf(stderr, "L<%u>: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
